@@ -11,3 +11,11 @@ A core portion of the work involved "cleaning" and "harmonizing" the two dataset
 - **Metadata Integration:** Successfully joined PORTAL station segments with INRIX TMC (Traffic Message Channel) segments via spatial intersection. This step highlighted how different segmentation and directional labeling can lead to data mismatches.
 - **Time-Series Standardization:** Unified 15-minute interval data from both sources, converting timestamps to a consistent time zone and format for seamless comparison.
 - **Validation and Visualization:** Used GeoPandas plotting to confirm that station coverage areas correctly overlapped with TMC segments. This allowed identification of potential misalignments or missing station geometry.
+
+## Data Sources
+
+### PORTAL
+PORTAL is a public transportation data platform that provides access to a variety of transportation data sources. PORTAL data includes real-time transit data, historical transit data, and transit schedules. PORTAL data is used by transportation agencies, businesses, and researchers to monitor transit operations, plan transit projects, and analyze transit patterns.
+
+### INRIX
+INRIX is a private company that collects and analyzes traffic data. They provide a variety of data products, including real-time traffic data, historical traffic data, and traffic forecasts. INRIX data is collected from a variety of sources, including GPS data from vehicles, mobile devices, and road sensors. INRIX data is used by transportation agencies, businesses, and researchers to monitor traffic conditions, plan transportation projects, and analyze traffic patterns.
