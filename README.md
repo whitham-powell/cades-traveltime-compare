@@ -2,6 +2,21 @@
 
 Code the demonstrates an approach to joining two travel time datasets via spatial information.
 
+## Dependencies
+- Python 3.12 or higher
+- Pandas
+- Geopandas
+- Matplotlib (optional if you do not want to plot the data)
+- mapclassify (optional if you do not want to plot segment maps)
+
+## Installation
+To install the dependencies, run the following command:
+```bash
+git clone git@github.com:whitham-powell/cades-traveltime-compare.git
+cd cades-traveltime-compare
+pipenv install
+```
+
 ## Project Overview
 
 This project explored two primary sources of traffic data—PORTAL (managed by ODOT and WSDOT) and INRIX (a commercial provider)—to investigate travel time trends on highways in the Portland metropolitan area. Each dataset presents unique strengths and limitations, ranging from sensor coverage and data frequency to the way road segments are defined. Integrating the datasets required a robust approach to handling differences in geometry (e.g., segment boundaries), time intervals, and data quality or availability.
