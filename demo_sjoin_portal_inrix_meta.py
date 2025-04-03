@@ -81,7 +81,7 @@ def wkb_to_geom(wkb_hex):
 # example_datafiles.get_* methods return the file paths and could be replace
 # with the actual file paths if you prefer.
 
-example_datafiles = PortalInrixDataFiles(data_root="path/to/data")
+example_datafiles = PortalInrixDataFiles(data_root="/home/oms/gdrive/STAT 570/CADES_DATA")
 example_datafiles.portal_file_summary()
 example_datafiles.inrix_file_summary()
 
@@ -94,6 +94,7 @@ portal_highways_df = pd.read_csv(example_datafiles.get_portal_meta("highways"))
 # pandas documentation.
 # - https://pandas.pydata.org/docs/reference/api/pandas.read_sql.html#pandas.read_sql
 
+# %%
 # Convert hex WKB to geometries
 portal_stations_df["segment_geom"] = portal_stations_df["segment_geom"].apply(
     wkb_to_geom
@@ -124,17 +125,18 @@ portal_stations_df["standardized_direction"] = portal_stations_df.apply(
     axis=1,
 )
 
+# %%
 # Convert to GeoDataFrame with Web Mercator CRS
 the_CRS = "EPSG:3857"
 portal_gdf = gpd.GeoDataFrame(portal_stations_df, geometry="segment_geom", crs=the_CRS)
 
 # Load INRIX TMC Shapefiles - Oregon and Clark County, WA
 oregon_gdf = gpd.read_file(
-    "/home/oms/code/school/pdx-edu-stat570-cades-consulting/data/CADES_DATA/CADES_INRIX/INRIX_TMC_Shapefile-2023_Oregon/Oregon_2301TMC/OREGON.shp"
+    "path/to/oregon_shapefile.shp"
 )
 
 clark_gdf = gpd.read_file(
-    "/home/oms/code/school/pdx-edu-stat570-cades-consulting/data/CADES_DATA/CADES_INRIX/INRIX_TMC_Shapefile-2023_ClarkCountyWA/ClarkCountyWA2301TMC.shp"
+    "path/to/clark_county_shapefile.shp"
 )
 
 # Convert all to a common CRS ("EPSG:4326" lon/lat)
@@ -145,6 +147,7 @@ portal_gdf = portal_gdf.to_crs("EPSG:4326")
 # Specify the year for INRIX data
 year_str = "2023"
 
+# %%
 # Load INRIX TMC Identification data this is used to find the unique TMCs
 # to filter to the same which are the given 139 TMCs of interest.
 tmc_identification_df = pd.read_csv(example_datafiles.get_inrix_meta(year_str))
@@ -185,6 +188,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
+# %%
 # Visualize the spatial join to ensure it looks correct
 fig, ax = plt.subplots(figsize=(12, 10))
 portal_inrix_spatial_join.plot(
@@ -212,6 +216,8 @@ columns_of_interest = [
     "lon",
     "lat",
     "highwayname",
+    "start_date",
+    "end_date",
 ]
 
 # Select columns of interest
@@ -220,3 +226,5 @@ portal_inrix_spatial_join[columns_of_interest]
 # Save the spatial join to a CSV
 # - comment out this line if you don't want to save to file
 portal_inrix_spatial_join[columns_of_interest].to_csv("data/portal_inrix_spatial_join.csv")
+
+# %%

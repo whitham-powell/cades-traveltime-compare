@@ -181,6 +181,7 @@ class PortalInrixDataFiles:
             for year, directions in years_dict.items():
                 for direction, files in directions.items():
                     print(f"{corridor} {year} {direction}: {len(files)} files")
+                    print(f"    {files}")
 
 
 # INRIX Shapefiles

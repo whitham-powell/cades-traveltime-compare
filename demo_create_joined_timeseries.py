@@ -1,3 +1,4 @@
+# %%
 import re
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -65,14 +66,14 @@ meta_columns_of_interest = [
     "highwayid",
     "RoadNumb_1",
     "direction",
-    "Miles",
+    # "Miles",
     "bound",
     "standardized_direction_portal",
     "standardized_direction_inrix",
     "StartLat",
     "StartLong",
-    "EndLat",
-    "EndLong",
+    # "EndLat",
+    # "EndLong",
     "milepost",
     # "length",
     "lon",
@@ -80,12 +81,12 @@ meta_columns_of_interest = [
     "highwayname",
     "start_date",
     "end_date",
-    "active_dates",
+    # "active_dates",
 ]
 
 # Initialize the data files object as in the sjoin script again with
 # caveat that this can be replaced with the actual file paths if preferred.
-example_datafiles = PortalInrixDataFiles(data_root="path/to/data")
+example_datafiles = PortalInrixDataFiles(data_root="../path/to/data")
 example_datafiles.portal_file_summary()
 example_datafiles.inrix_file_summary()
 
@@ -273,3 +274,5 @@ merged_df.to_csv(
     f"{route_name}_{bound_1}_{bound_2}__{start_dt:%Y%m%d}-{end_dt:%Y%m%d}_merged.csv",
     index=False,
 )
+
+# %%
