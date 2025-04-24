@@ -1,6 +1,6 @@
 # CADES Computational and Data-Enabled Sciences (CADES) Project
 
-Code the demonstrates an approach to joining two travel time datasets via spatial information.
+Code that demonstrates an approach to joining two travel time datasets via spatial information.
 
 ## Dependencies
 - Python 3.12 or higher
